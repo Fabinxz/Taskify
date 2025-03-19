@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taskify</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512' fill='white'><path d='M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z'/></svg>"
+        type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<div class="loader">
+    <div class="loader-spinner"></div>
+</div>
+
+
+<body class="light-mode">
+    <header>
+        <div class="logo">
+            <i class="fas fa-check"></i>
+            <h2>Taskify</h2>
+        </div>
+        <nav>
+            <ul>
+                <li><span></span></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="dashboard">
+        <h1>Progresso de Questões</h1>
+        <div class="progress-container">
+            <div class="progress-card">
+                <h3>Hoje</h3>
+                <div class="chart-container">
+                    <canvas id="chartHoje" width="120" height="120"></canvas>
+                </div>
+                <p><span id="hoje">0</span> de <span id="metaHoje">100</span></p>
+            </div>
+            <div class="progress-card">
+                <h3>Semana</h3>
+                <div class="chart-container">
+                    <canvas id="chartSemana" width="120" height="120"></canvas>
+                </div>
+                <p><span id="semana">0</span> de <span id="metaSemana">700</span></p>
+            </div>
+            <div class="progress-card">
+                <h3>Mês</h3>
+                <div class="chart-container">
+                    <canvas id="chartMes" width="120" height="120"></canvas>
+                </div>
+                <p><span id="mes">0</span> de <span id="metaMes">2800</span></p>
+            </div>
+            <div class="progress-card">
+                <h3>Ano</h3>
+                <div class="chart-container">
+                    <canvas id="chartAno" width="120" height="120"></canvas>
+                </div>
+                <p><span id="ano">0</span> de <span id="metaAno">25000</span></p>
+            </div>
+        </div>
+        
+        <button class="btn-editar-metas" id="btn-editar-metas"><i class="bi bi-pencil-square"></i></button>
+        <button id="add" class="circle" onclick="adicionarQuestao(1)">+1</button>
+        <button id="add" class="circle" onclick="adicionarQuestao(20)">+20</button>
+        <button id="add" class="circle" onclick="adicionarQuestao(5)">+5</button>
+        <button id="add" class="circle" onclick="adicionarQuestao(50)">+50</button>
+        <button id="add" class="circle" onclick="removerQuestao(1)">-1</button>
+        <button class="theme-toggle" id="theme-toggle"><i id="theme-icon" class="bi bi-sun"></i></button>
+
+        <div class="modal-metas">
+            <div class="modal-conteudo">
+                <div class="modal-cabecalho">
+                    <h3>Editar Metas</h3>
+                    <button class="fechar-modal">&times;</button>
+                </div>
+                <div class="modal-corpo">
+                    <div class="input-group">
+                        <label>Diária:</label>
+                        <input type="number" id="editarMetaHoje" min="1">
+                    </div>
+                    <div class="input-group">
+                        <label>Semanal:</label>
+                        <input type="number" id="editarMetaSemana" min="7">
+                    </div>
+                    <div class="input-group">
+                        <label>Mensal:</label>
+                        <input type="number" id="editarMetaMes" min="28">
+                    </div>
+                    <div class="input-group">
+                        <label>Anual:</label>
+                        <input type="number" id="editarMetaAno" min="365">
+                    </div>
+                </div>
+                <div class="modal-rodape">
+                    <button class="btn-salvar">Salvar Metas</button>
+                    <button class="btn-cancelar">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="notifications-container"></div>
+    <script src="js/script.js" defer></script>
+</body>
+
+</html>
